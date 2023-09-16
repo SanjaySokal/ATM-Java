@@ -10,11 +10,16 @@ public class Main {
         boolean notExit = true;
 
         Scanner sc = new Scanner(System.in);
+
         int input = 0;
+
         int[] accNum = new int[4];
+        int[] pin = { 1234, 4567, 5678, 4568 };
+
         for (int i = 0; i < accNum.length; i++) {
             accNum[i] = (int) (Math.random() * 1000000000);
         }
+
         try {
             input = sc.nextInt();
         } catch (Exception e) {
@@ -22,14 +27,17 @@ public class Main {
             notExit = false;
         }
 
-        if ((input != 0) || (input != 4)) {
+        if ((input > 0) && (input < 4)) {
             while (notExit) {
                 if (input == 1) {
                     viewBalance viewBalance = new viewBalance();
-                    notExit = viewBalance.getBalance(accNum, notExit);
+                    notExit = viewBalance.getBalance(accNum, notExit, pin);
                 }
             }
         } else {
+            if (input > 4) {
+                System.out.println("Sorry wrong input");
+            }
             exitMessage exitMessage = new exitMessage();
             exitMessage.getExitMessage();
         }
