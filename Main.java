@@ -14,7 +14,7 @@ public class Main {
         int input = 0;
 
         int[] accNum = new int[4];
-        int[] pin = { 1234, 4567, 5678, 4568 };
+        int pin = 1234;
 
         for (int i = 0; i < accNum.length; i++) {
             accNum[i] = (int) (Math.random() * 1000000000);
@@ -41,5 +41,6 @@ public class Main {
             exitMessage exitMessage = new exitMessage();
             exitMessage.getExitMessage();
         }
+        sc.close();
     }
 }
